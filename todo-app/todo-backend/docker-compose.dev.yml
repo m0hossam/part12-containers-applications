@@ -9,3 +9,7 @@ services:
       MONGO_INITDB_DATABASE: the_database  # Database name
     volumes:                               # Bind a file on host to a file in container (host_file:app_file)
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo_data:/data/db
+    
+volumes:                                   # Named volumes (created & managed by Docker)
+  mongo_data:
