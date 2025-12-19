@@ -3,7 +3,7 @@ const redis = require('../redis');
 const key = 'added-todos'
 
 const init = () => {
-    redis.setAsync(key, 0)
+    redis.setAsync(key, 0, 'NX') // Only initialize to 0 if key NOT EXISTS
 }
 
 init()
